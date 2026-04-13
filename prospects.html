@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
     <title>ATL Classic 2026 - Sponsor Prospects</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -353,5 +354,55 @@
     </div>
 
 </div>
+
+<div id="lockscreen" style="position:fixed;inset:0;z-index:9999;background:var(--dark);display:flex;align-items:center;justify-content:center;">
+    <div style="text-align:center;max-width:360px;padding:40px;">
+        <div style="font-size:0.65rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--crimson);margin-bottom:20px;">Restricted Access</div>
+        <h2 style="font-size:1.6rem;font-weight:800;margin-bottom:8px;">ATL Classic 2026</h2>
+        <p style="color:var(--gray-400);font-size:0.85rem;margin-bottom:30px;">Enter password to continue</p>
+        <input id="pw" type="password" placeholder="Password" autofocus
+            style="width:100%;padding:14px 20px;background:var(--dark-card);border:1px solid rgba(255,255,255,0.1);border-radius:8px;color:var(--white);font-family:inherit;font-size:1rem;outline:none;margin-bottom:16px;text-align:center;letter-spacing:1px;">
+        <button id="unlock"
+            style="width:100%;padding:14px;background:var(--crimson);color:var(--white);border:none;border-radius:8px;font-family:inherit;font-size:0.8rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;cursor:pointer;">
+            Enter
+        </button>
+        <p id="pw-error" style="color:var(--crimson);font-size:0.8rem;margin-top:16px;display:none;">Incorrect password</p>
+    </div>
+</div>
+
+<script>
+    // Password gate
+    (function() {
+        var hash = '6a1f0d2c8b3e5a7f';
+        function simpleHash(s) {
+            var h = 0x6a1f;
+            for (var i = 0; i < s.length; i++) {
+                h = ((h << 5) - h + s.charCodeAt(i)) & 0xFFFFFFFF;
+            }
+            return h.toString(16);
+        }
+        var expected = simpleHash('ATLclassic2026');
+
+        function tryUnlock() {
+            if (simpleHash(document.getElementById('pw').value) === expected) {
+                document.getElementById('lockscreen').style.display = 'none';
+                sessionStorage.setItem('atl_unlocked', '1');
+            } else {
+                document.getElementById('pw-error').style.display = 'block';
+                document.getElementById('pw').value = '';
+                document.getElementById('pw').focus();
+            }
+        }
+
+        if (sessionStorage.getItem('atl_unlocked') === '1') {
+            document.getElementById('lockscreen').style.display = 'none';
+        }
+
+        document.getElementById('unlock').addEventListener('click', tryUnlock);
+        document.getElementById('pw').addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') tryUnlock();
+        });
+    })();
+</script>
 </body>
 </html>
