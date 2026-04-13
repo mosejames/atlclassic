@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATL Classic 2026 - Sponsor Prospects</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --crimson: #B22234;
+            --gold: #C9A84C;
+            --dark: #0A0A0F;
+            --dark-card: #111118;
+            --dark-surface: #1A1A24;
+            --white: #FFFFFF;
+            --gray-100: #F0F0F3;
+            --gray-200: #D4D4DB;
+            --gray-300: #9A9AAF;
+            --gray-400: #6B6B80;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--dark);
+            color: var(--white);
+            -webkit-font-smoothing: antialiased;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 60px 40px;
+        }
+
+        .header {
+            margin-bottom: 50px;
+        }
+
+        .header .badge {
+            display: inline-block;
+            background: var(--crimson);
+            color: var(--white);
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+
+        .header h1 {
+            font-size: 2.4rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+        }
+
+        .header p {
+            color: var(--gray-400);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .prospect {
+            background: var(--dark-card);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 12px;
+            padding: 32px;
+            margin-bottom: 20px;
+            transition: border-color 0.3s;
+        }
+
+        .prospect:hover {
+            border-color: rgba(201, 168, 76, 0.25);
+        }
+
+        .prospect-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 24px;
+            margin-bottom: 16px;
+        }
+
+        .prospect-name {
+            font-size: 1.4rem;
+            font-weight: 800;
+            letter-spacing: -0.3px;
+        }
+
+        .tier {
+            display: inline-block;
+            padding: 5px 14px;
+            border-radius: 6px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .tier-title {
+            background: rgba(201, 168, 76, 0.15);
+            color: var(--gold);
+            border: 1px solid rgba(201, 168, 76, 0.3);
+        }
+
+        .tier-health {
+            background: rgba(63, 165, 53, 0.15);
+            color: #3FA535;
+            border: 1px solid rgba(63, 165, 53, 0.3);
+        }
+
+        .prospect-why {
+            color: var(--gray-300);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .prospect-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .ask {
+            font-size: 0.8rem;
+            color: var(--gray-400);
+            letter-spacing: 1px;
+        }
+
+        .ask strong {
+            color: var(--white);
+            font-weight: 700;
+            font-size: 1rem;
+        }
+
+        .deck-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 24px;
+            background: var(--crimson);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            transition: all 0.3s;
+        }
+
+        .deck-link:hover {
+            background: #CC1B2B;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(178, 34, 52, 0.3);
+        }
+
+        .deck-link .arrow {
+            transition: transform 0.3s;
+        }
+
+        .deck-link:hover .arrow {
+            transform: translateX(3px);
+        }
+
+        .no-deck {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 24px;
+            background: transparent;
+            color: var(--gray-400);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        .divider {
+            border: none;
+            border-top: 1px solid rgba(255,255,255,0.06);
+            margin: 40px 0;
+        }
+
+        .section-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 24px;
+        }
+
+        .footer {
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.06);
+            color: var(--gray-400);
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+        }
+
+        @media (max-width: 640px) {
+            .container { padding: 40px 20px; }
+            .prospect-top { flex-direction: column; gap: 12px; }
+            .prospect-bottom { flex-direction: column; align-items: flex-start; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <div class="header">
+        <div class="badge">Internal Use Only</div>
+        <h1>ATL Classic 2026 Sponsor Prospects</h1>
+        <p>September 19, 2026 / TSU vs FAMU / Mercedes-Benz Stadium</p>
+    </div>
+
+    <div class="section-label">Title Sponsor Targets ($2M+)</div>
+
+    <div class="prospect">
+        <div class="prospect-top">
+            <div class="prospect-name">Bank of America</div>
+            <span class="tier tier-title">Title Sponsor / $2M+</span>
+        </div>
+        <div class="prospect-why">The strongest lead on the board. BOA was title sponsor of the original Atlanta Football Classic for 20+ years. The event was literally called the "Bank of America Atlanta Football Classic." They didn't leave because they lost interest. The event ended when organizers pivoted to the Celebration Bowl. BOA still partners with the 100 Black Men of Atlanta (the original organizers), invested $10M in the Center for Black Entrepreneurship at Morehouse/Spelman, and is spending aggressively on sports (FIFA World Cup 2026 at MBS, David Beckham deal, The Masters). This is a homecoming pitch, not a cold call.</div>
+        <div class="prospect-bottom">
+            <div class="ask">Ask: <strong>$2M+ Title Sponsorship</strong></div>
+            <a href="ATL-Classic-BankOfAmerica.html" class="deck-link">View Deck <span class="arrow">&rarr;</span></a>
+        </div>
+    </div>
+
+    <div class="prospect">
+        <div class="prospect-top">
+            <div class="prospect-name">Coca-Cola</div>
+            <span class="tier tier-title">Title Sponsor / $2M+</span>
+        </div>
+        <div class="prospect-why">Atlanta's brand for Atlanta's HBCU event. Coca-Cola is already the official non-alcoholic beverage partner of the Celebration Bowl and MEAC/SWAC Challenge, so they understand this space. Existing HBCU programs include "The World Is My Yard," Project XL, and annual scholarship donations to HBCU marching bands. Born in Atlanta in 1886, headquartered here ever since. The "Coca-Cola ATL Classic" is a natural pairing. Steve specifically wants Coke because of the "Coca-Cola Classic" precedent.</div>
+        <div class="prospect-bottom">
+            <div class="ask">Ask: <strong>$2M+ Title Sponsorship</strong></div>
+            <a href="ATL-Classic-CocaCola.html" class="deck-link">View Deck <span class="arrow">&rarr;</span></a>
+        </div>
+    </div>
+
+    <div class="prospect">
+        <div class="prospect-top">
+            <div class="prospect-name">Google</div>
+            <span class="tier tier-title">Title Sponsor / $2M+</span>
+        </div>
+        <div class="prospect-why">Growing Midtown Atlanta campus, $50M+ HBCU initiative funding scholarships and research, and YouTube is the platform where HBCU marching band culture already thrives organically. Google has the tech to power fan experiences (AI, Pixel photo activations, Cloud analytics) and YouTube becomes the natural home for the ATL Classic Content Series. Amazon already took the Magic City Classic. The question is whether Google leads or follows.</div>
+        <div class="prospect-bottom">
+            <div class="ask">Ask: <strong>$2M+ Title Sponsorship</strong></div>
+            <a href="ATL-Classic-Google.html" class="deck-link">View Deck <span class="arrow">&rarr;</span></a>
+        </div>
+    </div>
+
+    <div class="prospect">
+        <div class="prospect-top">
+            <div class="prospect-name">Tyler Perry Studios</div>
+            <span class="tier tier-title">Title Sponsor / $2M+</span>
+        </div>
+        <div class="prospect-why">Tyler Perry is Atlanta. FAMU alumnus. Built the largest film studio in the country on a former Confederate military base. His brand is Black excellence, culture, and legacy. A Tyler Perry Studios title sponsorship would be a statement piece. The content series angle is strong here too: TPS has the production infrastructure and Netflix relationship to make the docuseries a premium product. The cultural alignment is unmatched.</div>
+        <div class="prospect-bottom">
+            <div class="ask">Ask: <strong>$2M+ Title Sponsorship</strong></div>
+            <a href="ATL-Classic-Tyler-Perry-Studios.html" class="deck-link">View Deck <span class="arrow">&rarr;</span></a>
+        </div>
+    </div>
+
+    <hr class="divider">
+
+    <div class="section-label">Community Health Partner ($50K-$100K)</div>
+
+    <div class="prospect">
+        <div class="prospect-top">
+            <div class="prospect-name">Grady Health System</div>
+            <span class="tier tier-health">Health Partner / $75K</span>
+        </div>
+        <div class="prospect-why">Not a title sponsor candidate, but one of the most narratively powerful partners we can land. Grady is the primary teaching hospital for Morehouse School of Medicine (one of only four historically Black medical schools in America). Sits adjacent to the AUC. Patient population is 70-80% Black/African American. Already the closest Level I trauma center to MBS. The pitch is a Community Health Partner designation: health screenings at the tailgate, sickle cell awareness, "Know Your Numbers" wellness campaign, and a halftime Healthcare Heroes moment. Grady does this work already. We give them the stage.</div>
+        <div class="prospect-bottom">
+            <div class="ask">Ask: <strong>$75K cash + $25K-$50K in-kind</strong></div>
+            <a href="ATL-Classic-GradyHealth.html" class="deck-link">View Deck <span class="arrow">&rarr;</span></a>
+        </div>
+    </div>
+
+    <hr class="divider">
+
+    <div class="section-label">Prospects Without Decks (Next Up)</div>
+
+    <div class="prospect">
+        <div class="prospect-top">
+            <div class="prospect-name">AT&amp;T</div>
+            <span class="tier tier-title">Title Sponsor / $2M+</span>
+        </div>
+        <div class="prospect-why">Was a co-sponsor during the original Atlanta Football Classic era and briefly held naming rights near the end (2013-2014). Active in HBCU space with AT&amp;T Dream in Black and HBCU Innovation Hub programs. Major presence in Atlanta. Has the telecom infrastructure angle for in-stadium connectivity and fan engagement tech.</div>
+        <div class="prospect-bottom">
+            <div class="ask">Ask: <strong>$2M+ Title Sponsorship</strong></div>
+            <span class="no-deck">Deck Pending</span>
+        </div>
+    </div>
+
+    <div class="prospect">
+        <div class="prospect-top">
+            <div class="prospect-name">Mercedes-Benz</div>
+            <span class="tier tier-title">Title Sponsor / $2M+</span>
+        </div>
+        <div class="prospect-why">Their name is literally on the building. Mercedes-Benz Stadium naming rights run through 2042. A title sponsorship creates a full-venue brand alignment that no other HBCU event can offer. The "Mercedes-Benz ATL Classic at Mercedes-Benz Stadium" has a ring to it. Already invested in Atlanta's sports landscape at the highest level.</div>
+        <div class="prospect-bottom">
+            <div class="ask">Ask: <strong>$2M+ Title Sponsorship</strong></div>
+            <span class="no-deck">Deck Pending</span>
+        </div>
+    </div>
+
+    <div class="prospect">
+        <div class="prospect-top">
+            <div class="prospect-name">Truist</div>
+            <span class="tier tier-title">Title Sponsor / $2M+</span>
+        </div>
+        <div class="prospect-why">Formed from the BB&amp;T/SunTrust merger. SunTrust was an Atlanta institution. Truist has naming rights to parks in Atlanta and Charlotte. Active in HBCU community banking and financial literacy programs. Connection through Amy (VP) and Kirk Brown. Regional bank with deep Southeast roots and a need to build brand identity post-merger.</div>
+        <div class="prospect-bottom">
+            <div class="ask">Ask: <strong>$2M+ Title Sponsorship</strong></div>
+            <span class="no-deck">Deck Pending</span>
+        </div>
+    </div>
+
+    <div class="prospect">
+        <div class="prospect-top">
+            <div class="prospect-name">Turner Broadcasting</div>
+            <span class="tier tier-title">TBD</span>
+        </div>
+        <div class="prospect-why">Atlanta-based media company (now Warner Bros. Discovery). Owns CNN, TNT, TBS, truTV. Broadcast partnership angle is strong: Turner could carry the game or the content series. Atlanta headquarters gives them a hometown connection. The media partnership could be structured as a sponsorship-plus-broadcast deal.</div>
+        <div class="prospect-bottom">
+            <div class="ask">Ask: <strong>TBD (sponsorship + broadcast)</strong></div>
+            <span class="no-deck">Deck Pending</span>
+        </div>
+    </div>
+
+    <div class="footer">
+        ATL Classic 2026 / Internal Prospect Tracker / Do Not Distribute
+    </div>
+
+</div>
+</body>
+</html>
